@@ -347,8 +347,11 @@ def shutdown_handler(signum, frame):
     state.exit_flag = True
     sys.exit(0)
 
-signal.signal(signal.SIGINT, shutdown_handler)
-signal.signal(signal.SIGTERM, shutdown_handler)
+try:
+    signal.signal(signal.SIGINT, shutdown_handler)
+    signal.signal(signal.SIGTERM, shutdown_handler)
+except ValueError:
+    pass
 
 def run_application():
     ConsoleUI.display_banner()

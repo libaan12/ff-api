@@ -2,3 +2,5 @@ flask
 flask-cors
 requests
 pycryptodome
+colorama
+urllib3
